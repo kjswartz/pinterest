@@ -2,7 +2,8 @@ class BoardsController < InheritedResources::Base
   before_action :set_board, only: [:show, :edit, :update, :destroy]
 
   def index
-    @boards = Board.all
+    @user = User.find(params[:user_id])
+    @boards = @user.boards
   end
 
   def new
@@ -16,15 +17,8 @@ class BoardsController < InheritedResources::Base
   end
 
   def create
-    @board = Board.new(board_params)
-
-    respond_to do |format|
-      if @board.save
-        format.html { redirect_to @board, notice: 'Board was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
+    @board = @users.boards.create(board_params)
+    redirect_to user_path(@user)
   end
 
   def update
