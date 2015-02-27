@@ -43,12 +43,13 @@ class UsersController < InheritedResources::Base
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     end
   end
+
   private
     def set_user
       @user = User.find(params[:id])
     end
 
     def user_params
-      params.require(:user).permit(:name, :username, :email, :avatar, :location, :about)
+      params.require(:user).permit(:name, :username, :email, :avatar, :avatar_cache, :location, :about, :remove_avatar)
     end
 end
