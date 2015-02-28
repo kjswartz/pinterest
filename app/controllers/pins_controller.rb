@@ -6,7 +6,7 @@ class PinsController < InheritedResources::Base
   end
 
   def new
-    @pin = Pin.new
+    @pin = Pin.new(:board_id => params[:board_id])
   end
 
   def edit

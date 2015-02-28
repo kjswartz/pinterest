@@ -18,9 +18,14 @@
         <td><%= board.user.username %></td>
         <td><%= board.name %></td>
         <td><%= board.description %></td>
+        <td><%= link_to 'Show', [board.user, board] %></td>
+        <td><%= link_to 'Edit', edit_user_board_path(board.user, board) %></td>
+        <td><%= link_to 'Destroy', [board.user, board], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= link_to 'User Profile', user_path(@user) %>

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: pins
+#
+#  id          :integer          not null, primary key
+#  board_id    :integer
+#  title       :string
+#  description :text
+#  url         :string
+#  image       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Pin < ActiveRecord::Base
   belongs_to :board
 end

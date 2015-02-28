@@ -27,10 +27,14 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
+
+  <!-- <%= image_tag(@pin.image.thumb.url) if @pin.image? %> -->
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.label :movie_poster %>
+    <%= f.file_field :movie_poster %>
+    <%= f.hidden_field :movie_poster_cache %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

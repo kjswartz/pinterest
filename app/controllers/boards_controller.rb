@@ -7,7 +7,8 @@ class BoardsController < InheritedResources::Base
   end
 
   def new
-    @board = Board.new
+    @user = User.find(params[:user_id])
+    @board = @user.boards.new
   end
 
   def edit
@@ -17,14 +18,21 @@ class BoardsController < InheritedResources::Base
   end
 
   def create
-    @board = @users.boards.create(board_params)
-    redirect_to user_path(@user)
+    @user = User.find(params[:user_id])
+    @board = @user.boards.new(board_params)
+      respond_to do |format|
+      if @board.save
+        format.html {redirect_to [@board.user, @board], notice: 'Board was successfully created.'}
+      else
+        format.html { render :new}
+      end
+    end
   end
 
   def update
     respond_to do |format|
       if @board.update(board_params)
-        format.html { redirect_to @board, notice: 'Board was successfully updated.' }
+        format.html { redirect_to([@board.user, @board], notice: 'Board was successfully updated.')}
       else
         format.html { render :edit }
       end
@@ -34,12 +42,15 @@ class BoardsController < InheritedResources::Base
   def destroy
     @board.destroy
     respond_to do |format|
-      format.html { redirect_to boards_url, notice: 'Board was successfully destroyed.' }
+      format.html { redirect_to user_boards_url, notice: 'Board was successfully destroyed.' }
     end
   end
+
   private
     def set_board
-      @board = Board.find(params[:id])
+      # @board = Board.find(params[:id])
+      @user = User.find(params[:user_id])
+      @board = @user.boards.find(params[:id])
     end
 
     def board_params
