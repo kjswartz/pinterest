@@ -49,6 +49,6 @@ class PinsController < InheritedResources::Base
   end
 
     def pin_params
-      params.require(:pin).permit(:board_id, :title, :description, :url, :image)
+      params.require(:pin).permit(:board_id, :title, :description, :url, :image, :image_cache, :remove_image)
     end
 end

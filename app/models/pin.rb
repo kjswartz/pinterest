@@ -13,5 +13,9 @@
 #
 
 class Pin < ActiveRecord::Base
+  #carrierwave
+  mount_uploader :image, ImageUploader
+
+  #association
   belongs_to :board
 end
