@@ -2,7 +2,7 @@
 
 <p>
   <strong>Board:</strong>
-  <%= @pin.board %>
+  <%= @pin.board.name %>
 </p>
 
 <p>
@@ -26,4 +26,5 @@
 </p>
 
 <%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
+<%= link_to 'Back', pins_path %> |
+<%= link_to 'Board for Pin', user_board_path(@pin.board.user, @pin.board)  %> |
