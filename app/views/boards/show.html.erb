@@ -12,19 +12,21 @@
   <%= @board.description %>
 </p>
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="masonry">
+      <div class="item"><%= link_to image_tag('add_pin.png'), new_pin_path(:board_id => @board.id) %></div>
+      <% @board.pins.shuffle.each do |pin| %>
+        <div class="item"><%= link_to image_tag(pin.image.url(:board)), pin %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p><strong>List pins index below</strong></p>
-<% @board.pins.each do |pin| %>
-  <p><%= pin.title %></p>
-  <p><%= pin.description %></p>
-  <p><%= pin.title %></p>
-<% end %>
 
 
-<%= link_to image_tag('add_pin.png'), new_pin_path(:board_id => @board.id) %>
 
 </br>
-<%= link_to 'New Pin', new_pin_path(:board_id => @board.id) %> |
 <%= link_to 'Edit Bard', edit_user_board_path(@board.user, @board) %> |
 <%= link_to 'All Boards', user_boards_path(@board.user) %> |
 <%= link_to 'User Profile', user_path(@user) %>

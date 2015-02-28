@@ -37,10 +37,6 @@
   <%= @user.boards.count %>
 </p>
 
-<p>
-  <strong>Place Holder to display all boards below in grid. Click on board to link_to board:</strong>
-</p>
-
 <h1>Listing Boards</h1>
 
 <table>
@@ -71,8 +67,21 @@
 
 
 
-
-<%= link_to image_tag('create_board.png'), new_user_board_path(@user) %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="masonry">
+      <div class="item"><%= link_to image_tag('create_board.png'), new_user_board_path(@user) %></div>
+      <% @user.boards.each do |board| %>
+        <div class="item">
+          <div class="boardContainer">
+            <h3 class="boardName"><%= board.name %></h3>
+            <div style="padding-left:10px;"><%= link_to image_tag(board.pins.first.image.url(:board)), [board.user, board] %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 

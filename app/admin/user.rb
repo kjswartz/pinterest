@@ -26,6 +26,9 @@ ActiveAdmin.register User do
     column "Boards" do |user|
       user.boards.count
     end
+    column "Pins" do |user|
+      user.pins.count
+    end
     actions
   end
 
