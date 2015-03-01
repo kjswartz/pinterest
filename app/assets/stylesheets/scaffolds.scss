@@ -19,11 +19,14 @@ pre {
 }
 
 a {
+  text-decoration: none;
   color: #000;
   &:visited {
+    text-decoration: none;
     color: #666;
   }
   &:hover {
+    text-decoration: none;
     color: #fff;
     background-color: #000;
   }
@@ -82,6 +85,7 @@ div {
     display: inline-block;
     margin: 1em;
     width: 100%;
+
 }
 
 .boardContainer {
@@ -89,9 +93,8 @@ div {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   border-radius: 6px;
   position: relative;
-  width: 256px;
+  width: 236px;
 }
-
 
 .boardName {
 -webkit-font-smoothing: antialiased;
@@ -110,4 +113,21 @@ margin: 0 3px 6px;
 position: relative;
 height: auto;
 padding: 5px 0px 3px 10px;
+}
+
+.pinimg {
+  border-radius: 6px 6px 0px 0px;
+  }
+
+.pin{
+  border-top: 1px;
+  border-style: solid;
+  border-color: #E3E3E3;
+  text-decoration: none;
+  color: #999;
+  line-height: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px 0px 5px 10px;
+  text-align: left;
 }

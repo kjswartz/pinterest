@@ -42,7 +42,7 @@ class BoardsController < InheritedResources::Base
   def destroy
     @board.destroy
     respond_to do |format|
-      format.html { redirect_to user_boards_url, notice: 'Board was successfully destroyed.' }
+      format.html { redirect_to user_url(@user), notice: 'Board was successfully destroyed.' }
     end
   end
 

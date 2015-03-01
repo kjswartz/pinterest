@@ -15,9 +15,22 @@
 <div class="row">
   <div class="col-md-12">
     <div class="masonry">
-      <div class="item"><%= link_to image_tag('add_pin.png'), new_pin_path(:board_id => @board.id) %></div>
+      <div class="item">
+        <%= link_to image_tag('add_pin.png'), new_pin_path(:board_id => @board.id) %>
+      </div>
       <% @board.pins.shuffle.each do |pin| %>
-        <div class="item"><%= link_to image_tag(pin.image.url(:board)), pin %></div>
+        <div class="item">
+          <div class="boardContainer">
+            <%= link_to image_tag(pin.image.url(:board), class:"pinimg"), pin %>
+            <h3 class="boardName"><%= pin.title %></h3>
+            <a href= "<%= pin.url %>" style="text-decoration:none;">
+              <div class="pin">
+                Pinned from</br>
+                <%= truncate(pin.url, length:35) %>
+              </div>
+            </a>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
