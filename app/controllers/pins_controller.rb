@@ -17,7 +17,7 @@ class PinsController < InheritedResources::Base
 
   def create
     @pin = Pin.new(pin_params)
-
+    @pin.url = "Pinterest user: #{@pin.board.user.username}" if @pin.url.blank?
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, notice: 'Pin was successfully created.' }

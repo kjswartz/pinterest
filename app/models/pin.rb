@@ -18,4 +18,7 @@ class Pin < ActiveRecord::Base
 
   #association
   belongs_to :board
+
+  #validations
+  validates :title, presence: true
 end

@@ -2,12 +2,10 @@
 
 <%= link_to 'User Profile', user_path(@current_user) %>
 
-
 <div class="row">
   <div class="col-md-12">
     <div class="masonry">
-      <% @boards.each do |board| %>
-        <% board.pins.shuffle.each do |pin| %>
+        <% @pins.each do |pin| %>
           <div class="item">
             <div class="boardContainer">
               <%= link_to image_tag(pin.image.url(:pinsize), class: "pinimg"), pin %>
@@ -20,8 +18,9 @@
               </a>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
+<%= paginate @pins %>

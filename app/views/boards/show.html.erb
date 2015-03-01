@@ -1,5 +1,5 @@
 <div>
-<h1><%= @board.name %></h1>
+<h1><%= @board.name.upcase %></h1>
 
 <p id="notice"><%= notice %></p>
 
@@ -16,42 +16,36 @@
   <div class="col-md-12">
     <div class="masonry">
 
-      <div class="item">
-
-
-
         <!-- Button trigger modal -->
         <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-          <%= image_tag('create_board.png') %>
+          <%= image_tag('add_pin.png') %>
         </button>
         <!-- Modal -->
+
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
+
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Create a Board</h4>
+                <h4 class="modal-title" id="myModalLabel">Create a Pin</h4>
               </div>
+
               <div class="modal-body">
                 <%= render "formpin" %>
               </div>
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
+
             </div>
           </div>
         </div>
 
 
-
-
-      </div>
-
-
-
       <% @board.pins.shuffle.each do |pin| %>
-        <div class="item">
-          <div class="boardContainer">
+        <div class="item boardContainer">
             <%= link_to image_tag(pin.image.url(:pinsize), class:"pinimg"), pin %>
             <h3 class="boardName"><%= pin.title %></h3>
             <a href= "<%= pin.url %>" style="text-decoration:none;">
@@ -60,14 +54,13 @@
                 <%= truncate(pin.url, length:35) %>
               </div>
             </a>
-          </div>
         </div>
       <% end %>
+
+
     </div>
   </div>
 </div>
-
-
 
 
 </br>
