@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 LOREMPIXEL = %w{abstract city animals food transport sports nightlife cats business}
-10.times do |counter|
-  Pin.create(board_id: "7",
+20.times do |counter|
+  Pin.create(board_id: "23",
             title: Faker::Name.title,
             description: Faker::Lorem.paragraph,
             url: Faker::Internet.url,

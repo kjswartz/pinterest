@@ -10,7 +10,7 @@
         <% board.pins.shuffle.each do |pin| %>
           <div class="item">
             <div class="boardContainer">
-              <%= link_to image_tag(pin.image.url(:board), class: "pinimg"), pin %>
+              <%= link_to image_tag(pin.image.url(:pinsize), class: "pinimg"), pin %>
               <h3 class="boardName"><%= pin.title %></h3>
               <a href= "<%= pin.url %>" style="text-decoration:none;">
                 <div class="pin">

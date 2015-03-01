@@ -13,4 +13,7 @@
 class Board < ActiveRecord::Base
   belongs_to :user
   has_many :pins, dependent: :destroy
+
+  #validations
+  validates :name, presence: true
 end
