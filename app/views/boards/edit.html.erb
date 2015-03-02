@@ -1,6 +1,10 @@
-<h1>Editing Board</h1>
+<div class="container-fluid profilehead">
+  <h1>Editing Board</h1>
+</div>
 
-<%= render 'form' %>
+<div class="container">
+  <%= render 'form' %>
 
-<%= link_to 'Show', [@board.user, @board] %> |
-<%= link_to 'Back', user_boards_path(@board.user) %>
+  <%= link_to 'Show', [@board.user, @board] %> |
+  <%= link_to 'Back', user_boards_path(@board.user) %>
+</div>

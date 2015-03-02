@@ -14,12 +14,16 @@
 </head>
 
 <body class="background">
+  <div class="container-fluid searchbar">
+    <%= form_tag(pins_path, method: "get") do %>
+      <%= label_tag(:title, "Search for:") %>
+      <%= text_field_tag(:title, nil, placeholder: "Pins") %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
 
-<header>place holder for static header bar with search and user profile.</header>
-
-<div class="container">
   <%= yield %>
-</div>
+
 
 </body>
 </html>

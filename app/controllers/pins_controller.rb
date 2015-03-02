@@ -1,8 +1,15 @@
 class PinsController < InheritedResources::Base
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @search = params[:title]
+    @pins = Pin.where("title like ?", "%#{@search}%").page(params[:page]).per(15)
+    render 'pins/index'
+  end
+
   def index
-    @pins = Pin.all
+    # @pins = Pin.all
+    @pins = Pin.page(params[:page]).per(15)
   end
 
   def new

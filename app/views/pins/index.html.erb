@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Pins</h1>
+<% if @search %>
+  <h3>Search results for <%= @search %></h3>
+<% end %>
 
 <table>
   <thead>
@@ -32,6 +35,6 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Pin', new_pin_path %>
+
+<%= paginate @pins %>
