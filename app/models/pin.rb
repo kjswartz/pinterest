@@ -22,6 +22,7 @@ class Pin < ActiveRecord::Base
   #validations
   validates :title, presence: true
   validates :image, presence: true
+  validates :board_id, presence: true
 
 
 end

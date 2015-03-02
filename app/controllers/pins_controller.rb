@@ -53,7 +53,7 @@ class PinsController < InheritedResources::Base
   def destroy
     @pin.destroy
     respond_to do |format|
-      format.html { redirect_to pins_url, notice: 'Pin was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Pin was successfully destroyed.' }
     end
   end
 

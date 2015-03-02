@@ -9,7 +9,8 @@
     <strong>Description:</strong>
     <%= @board.description %>
   </p>
-  <%= link_to 'Edit', edit_user_board_path, class:"btn btn-default" %>
+  <%= link_to 'Edit', edit_user_board_path, class:"btn btn-default" if @user.id == @current_user.id %>
+  <%= link_to 'Delete', user_board_path(@board.user, @board), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-default" if @user.id == @current_user.id %>
 </div>
 
 <div class="container">
@@ -17,9 +18,10 @@
     <div class="col-md-12">
       <div class="masonry">
 
+
           <!-- Button trigger modal -->
           <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-            <%= image_tag('add_pin.png') %>
+            <%= image_tag('add_pin.png') if @user.id == @current_user.id %>
           </button>
           <!-- Modal -->
 

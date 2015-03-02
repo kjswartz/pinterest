@@ -54,6 +54,7 @@
 
 <% if @pin.board.user.id == @current_user.id %>
   <%= link_to 'Edit Pin', edit_pin_path(@pin), class:"btn btn-default" %>
+  <%= link_to 'Delete Pin', @pin, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-default" %>
 <% end %>
 
 
