@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :current_user
 
   def current_user
-    @current_user = User.find_by(email: "kyle@kyle.com")
+    @current_user = User.find_by(email: "guest@guest.com")
   end
 
   helper_method :signed_in?

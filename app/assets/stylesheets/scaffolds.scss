@@ -1,16 +1,12 @@
-.searchbar {
-  border-bottom: 1px;
-  border-style: solid;
-  border-color: #eee;
-  padding: 10px;
-  background-color: #fff;
-}
 
 .profilehead {
   background-color: #fff;
+  padding-bottom: 10px;
 
 }
-
+.container {
+  padding-top:10px;
+}
 
 
 body {
@@ -21,11 +17,6 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
 
 pre {
   background-color: #eee;

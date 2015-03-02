@@ -1,83 +1,63 @@
 <div class="container-fluid profilehead">
   <p id="notice"><%= notice %></p>
-  <%= link_to 'Home', '/' %>
 
-  <strong>Name:</strong>
-  <%= @user.name %>
+    <%= image_tag @user.avatar.url, class: "profileImage displayed" %>
 
-  <strong>Username:</strong>
-  <%= @user.username %>
 
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <div class="container-fluid profilehead">
+    <p><strong>Boards:</strong><%= @user.boards.count %></p>
+    <p><strong>Pins:</strong><%= @user.pins.count %></p>
+  </div>
 
-  <strong>Avatar:</strong></br>
-  <%= image_tag @user.avatar.url, class: "profileImage" %>
-
-  <strong>Location:</strong>
-  <%= @user.location %>
-
-  <strong>About:</strong>
-  <%= @user.about %>
-
-  <strong>Boards:</strong>
-  <%= @user.boards.count %>
 </div>
 
 <div class="container">
-<div class="row" style="padding-top:10px;">
-  <div class="col-md-3">
+  <div class="row" style="padding-top:10px;">
+    <div class="col-md-3">
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-      <%= image_tag('create_board.png') %>
-    </button>
-    <!-- Modal -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
+        <%= image_tag('create_board.png') %>
+      </button>
+      <!-- Modal -->
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
 
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Create a Board</h4>
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Create a Board</h4>
+            </div>
+
+            <div class="modal-body">
+              <%= render "formboard" %>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+
           </div>
-
-          <div class="modal-body">
-            <%= render "formboard" %>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          </div>
-
         </div>
       </div>
+
     </div>
 
+    <% @user.boards.each do |board| %>
+    <div class="col-md-3">
+      <div class="boardContainer">
+        <h3 class="boardName"><%= board.name %></h3>
+        <%= link_to image_tag(board.pins.first.image.url(:board), class:"boardimg"), [board.user, board] unless board.pins.blank? %>
+        <%= link_to image_tag(board.pins[1].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
+        <%= link_to image_tag(board.pins[2].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
+        <%= link_to image_tag(board.pins[3].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
+
+        <div class="button"><%= link_to 'Edit', edit_user_board_path(board.user, board), class:"btn btn-default btn-block" %></div>
+
+      </div>
+    </div>
+    <% end %>
+
   </div>
-
-      <% @user.boards.each do |board| %>
-        <div class="col-md-3">
-          <div class="boardContainer">
-            <h3 class="boardName"><%= board.name %></h3>
-            <%= link_to image_tag(board.pins.first.image.url(:board), class:"boardimg"), [board.user, board] unless board.pins.blank? %>
-            <%= link_to image_tag(board.pins[1].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
-            <%= link_to image_tag(board.pins[2].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
-            <%= link_to image_tag(board.pins[3].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
-
-            <div class="button"><%= link_to 'Edit', edit_user_board_path(board.user, board), class:"btn btn-default btn-block" %></div>
-
-          </div>
-        </div>
-      <% end %>
-
-</div>
-
-
-
-
-</br>
-<%= link_to 'New Board', new_user_board_path(@user) %> |
-<%= link_to 'Edit Profile', edit_user_path(@user) %>
 </div>
