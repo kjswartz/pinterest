@@ -16,11 +16,8 @@ class PinsController < InheritedResources::Base
     @pin = Pin.new(:board_id => params[:board_id])
   end
 
-  def pinning
-
-  end
-
   def edit
+    @new_pin = Pin.find(params[:id])
   end
 
   def show
@@ -32,7 +29,8 @@ class PinsController < InheritedResources::Base
   end
 
   def create
-    @pin = Pin.new(pin_params)
+    @new_pin = Pin.new(pin_params)
+    @pin = @new_pin
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
@@ -58,12 +56,13 @@ class PinsController < InheritedResources::Base
       format.html { redirect_to pins_url, notice: 'Pin was successfully destroyed.' }
     end
   end
+
   private
   def set_pin
     @pin = Pin.find(params[:id])
   end
 
     def pin_params
-      params.require(:pin).permit(:board_id, :title, :description, :url, :image, :image_cache, :remove_image, board_ids: [])
+      params.require(:pin).permit(:id, :board_id, :title, :description, :url, :image, :image_cache, :remove_image, board_ids: [])
     end
 end
