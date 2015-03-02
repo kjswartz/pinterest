@@ -49,9 +49,9 @@
       <div class="boardContainer">
         <h3 class="boardName"><%= board.name %></h3>
         <%= link_to image_tag(board.pins.first.image.url(:board), class:"boardimg"), [board.user, board] unless board.pins.blank? %>
-        <%= link_to image_tag(board.pins[1].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
-        <%= link_to image_tag(board.pins[2].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
-        <%= link_to image_tag(board.pins[3].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins.blank? %>
+        <%= link_to image_tag(board.pins[1].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins[1].blank? %>
+        <%= link_to image_tag(board.pins[2].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins[2].blank? %>
+        <%= link_to image_tag(board.pins[3].image.url(:thumb), class:"boardthumbimg"), [board.user, board] unless board.pins[3].blank? %>
 
         <div class="button"><%= link_to 'Edit', edit_user_board_path(board.user, board), class:"btn btn-default btn-block" %></div>
 

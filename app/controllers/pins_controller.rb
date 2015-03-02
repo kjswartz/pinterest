@@ -16,15 +16,23 @@ class PinsController < InheritedResources::Base
     @pin = Pin.new(:board_id => params[:board_id])
   end
 
+  def pinning
+
+  end
+
   def edit
   end
 
   def show
+    @new_pin = Pin.new
+    @new_pin.title = @pin.title
+    @new_pin.image = @pin.image
+    @new_pin.description = @pin.description
   end
 
   def create
     @pin = Pin.new(pin_params)
-    @pin.url = "Pinterest user: #{@pin.board.user.username}" if @pin.url.blank?
+    # @pin.url = "Pinterest user: #{@pin.board.user.email}" if @pin.url.blank?
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
@@ -56,6 +64,6 @@ class PinsController < InheritedResources::Base
   end
 
     def pin_params
-      params.require(:pin).permit(:board_id, :title, :description, :url, :image, :image_cache, :remove_image)
+      params.require(:pin).permit(:board_id, :title, :description, :url, :image, :image_cache, :remove_image, board_ids: [])
     end
 end
