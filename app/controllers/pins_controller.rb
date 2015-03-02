@@ -28,11 +28,11 @@ class PinsController < InheritedResources::Base
     @new_pin.title = @pin.title
     @new_pin.image = @pin.image
     @new_pin.description = @pin.description
+    @new_pin.url = @pin.url
   end
 
   def create
     @pin = Pin.new(pin_params)
-    # @pin.url = "Pinterest user: #{@pin.board.user.email}" if @pin.url.blank?
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, notice: 'Pin was successfully created.' }

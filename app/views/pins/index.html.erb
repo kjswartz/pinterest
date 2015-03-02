@@ -1,10 +1,17 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
+
+  <%= form_for(search_pins_path, method: "get", class:"form-inline") do %>
+    <%= label_tag(:title, "Search for:") %>
+    <%= text_field_tag(:title, nil, placeholder: "Pins") %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
 
 <h1>Listing Pins</h1>
 <% if @search %>
   <h3>Search results for <%= @search %></h3>
-<% end %>
-
+  <% end %>
 <table>
   <thead>
     <tr>
@@ -22,17 +29,19 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.board_id %></td>
-        <td><%= pin.board.name %></td>
+        <td><%= pin.board.name unless pin.board.blank? %></td>
         <td><%= pin.title %></td>
         <td><%= pin.description %></td>
         <td><%= pin.url %></td>
-        <td><%= image_tag pin.image.url(:thumb) %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to image_tag(pin.image.url(:thumb)), pin %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+
+
+
 <%= paginate @pins %>
+</div>
