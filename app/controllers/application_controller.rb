@@ -13,6 +13,4 @@ class ApplicationController < ActionController::Base
   def signed_in?
     return true if @current_user
   end
-
-
 end

@@ -17,10 +17,10 @@
       <th>Board ID</th>
       <th>Board Name</th>
       <th>Title</th>
-      <th>Description</th>
-      <th>Url</th>
       <th>Image</th>
-      <th colspan="3"></th>
+      <% if @current_user.admin? %>
+        <th colspan="2"></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -30,9 +30,11 @@
         <td><%= pin.board_id %></td>
         <td><%= pin.board.name unless pin.board.blank? %></td>
         <td><%= pin.title %></td>
-        <td><%= pin.description %></td>
-        <td><%= pin.url %></td>
         <td><%= link_to image_tag(pin.image.url(:thumb)), pin %></td>
+        <% if @current_user.admin? %>
+          <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
+          <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -2,8 +2,7 @@ class UsersController < InheritedResources::Base
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.where(id: current_user).find_by(id: params[:id])
-    redirect_to root_path, alert: "Ah Ah Ah...You didn't say the magic word..." if @user.nil?
+    @users = User.all
   end
 
   def new
