@@ -25,7 +25,7 @@ ActiveAdmin.register User do
     column :email
     column :location
     column "Boards" do |user|
-      user.boards.count
+      link_to user.boards.count, admin_boards_path(q: {user_id_eq: user.id})
     end
     column "Pins" do |user|
       user.pins.count

@@ -13,7 +13,7 @@ ActiveAdmin.register Board do
     end
     column :description
     column 'Pin Count' do |board|
-      board.pins.count
+      link_to board.pins.count, admin_pins_path(q: {board_id_eq: board.id})
     end
     column 'Owner' do |board|
       link_to board.user.name, admin_user_path(board.user)
