@@ -3,6 +3,7 @@ ActiveAdmin.register Board do
   scope_to :current_user
   scope :updated_board
 
+
   permit_params(:user_id, :name, :description)
 
   index do
