@@ -15,6 +15,7 @@ ActiveAdmin.register User do
   end
 
   index do
+    selectable_column
     column :id
     column "Profile Pic" do |user|
       image_tag user.avatar.url(:thumb)

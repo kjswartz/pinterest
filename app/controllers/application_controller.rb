@@ -14,4 +14,5 @@ class ApplicationController < ActionController::Base
     return true if @current_user
   end
 
+
 end

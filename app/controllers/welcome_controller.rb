@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @pins = Pin.page(params[:page]).per(50)
+    @pins = Pin.order('created_at desc').page(params[:page]).per(50)
   end
 
   def search

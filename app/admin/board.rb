@@ -1,12 +1,12 @@
 ActiveAdmin.register Board do
   config.per_page = 10
-  scope_to :current_user
   scope :updated_board
 
 
   permit_params(:user_id, :name, :description)
 
   index do
+    selectable_column
     column :id
     column 'Board Title' do |board|
       board.name

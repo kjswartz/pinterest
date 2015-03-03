@@ -4,12 +4,12 @@ class PinsController < InheritedResources::Base
 
   def search
     @search = params[:title]
-    @pins = Pin.where("title like ?", "%#{@search}%").page(params[:page]).per(15)
+    @pins = Pin.where("title like ?", "%#{@search}%").order('created_at desc').page(params[:page]).per(15)
     render 'pins/index'
   end
 
   def index
-    @pins = Pin.page(params[:page]).per(15)
+    redirect_to 'pins/search'
   end
 
   def new

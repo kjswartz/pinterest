@@ -7,5 +7,5 @@ development:
 
 test:
   adapter: postgresql
-  database: pinterest_dev
+  database: pinterest_test
   host: localhost

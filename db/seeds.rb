@@ -20,7 +20,7 @@ LOREMPIXEL = %w{abstract city animals food transport sports nightlife cats busin
   User.create(name: Faker::Name.name,
    username: Faker::Internet.user_name,
    email: Faker::Internet.safe_email,
-   avatar: Faker::Avatar.image,
+   remote_avatar_url: Faker::Avatar.image,
    location: Faker::Address.city,
    about: Faker::Lorem.paragraph)
  end
