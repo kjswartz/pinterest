@@ -22,4 +22,12 @@ class Board < ActiveRecord::Base
     order('updated_at desc')
   end
 
+  def self.latest_board
+    order('created_at desc').first
+  end
+
+  def self.first_board
+    order('created_at asc').first
+  end
+
 end

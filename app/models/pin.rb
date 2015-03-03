@@ -31,4 +31,8 @@ class Pin < ActiveRecord::Base
     order('created_at desc').first
   end
 
+  def self.first_pin
+    order('created_at asc').first
+  end
+
 end
