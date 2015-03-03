@@ -2,8 +2,12 @@ class BoardsController < InheritedResources::Base
   before_action :set_board, only: [:show, :edit, :update, :destroy, :new]
 
   def index
-    @user = User.find(params[:user_id])
-    @boards = @user.boards
+    @user = User.where(id: current_user).find_by(id: params[:user_id])
+      if @user.nil?
+        redirect_to root_path, alert: "Ah Ah Ah...You didn't say the magic word..."
+      else
+        @boards = @user.boards.order('updated_at desc')
+      end
   end
 
   def new
