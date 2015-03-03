@@ -27,9 +27,7 @@ class Pin < ActiveRecord::Base
   #scope
   # scope :created_at, -> { where(created: true) }
 
-  def self.latest_pin
-    order('created_at desc').first
-  end
+  scope :latest_pin, -> { order("pins.created_at desc") }
 
   def self.first_pin
     order('created_at asc').first
