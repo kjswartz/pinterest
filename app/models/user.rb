@@ -22,5 +22,10 @@ class User < ActiveRecord::Base
   has_many :pins, through: :boards
 
   #validations
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :username, uniqueness: true
+
+
 
 end

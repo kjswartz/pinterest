@@ -24,5 +24,11 @@ class Pin < ActiveRecord::Base
   validates :image, presence: true
   validates :board_id, presence: true
 
+  #scope
+  # scope :created_at, -> { where(created: true) }
+
+  def self.latest_pin
+    order('created_at desc').first
+  end
 
 end

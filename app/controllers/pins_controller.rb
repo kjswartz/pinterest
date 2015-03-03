@@ -9,7 +9,6 @@ class PinsController < InheritedResources::Base
   end
 
   def index
-    # @pins = Pin.all
     @pins = Pin.page(params[:page]).per(15)
   end
 

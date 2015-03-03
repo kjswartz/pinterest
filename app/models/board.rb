@@ -16,4 +16,10 @@ class Board < ActiveRecord::Base
 
   #validations
   validates :name, presence: true
+
+
+  def self.updated_board
+    order('updated_at desc')
+  end
+
 end
