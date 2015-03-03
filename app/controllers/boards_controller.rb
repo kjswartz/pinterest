@@ -49,8 +49,12 @@ class BoardsController < InheritedResources::Base
   private
     def set_board
       # @board = Board.find(params[:id])
-      @user = User.find(params[:user_id])
-      @board = @user.boards.find(params[:id])
+      @user = User.where(id: current_user).find_by(id: params[:user_id])
+      if @user.nil?
+        redirect_to '/'
+      else
+        @board = @user.boards.find(params[:id])
+      end
     end
 
     def board_params

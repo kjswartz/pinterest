@@ -1,5 +1,6 @@
 class PinsController < InheritedResources::Base
-  before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :set_pin, only: [:show, :update]
+  before_action :modify_pin, only: [:destroy, :edit]
 
   def search
     @search = params[:title]
@@ -62,7 +63,12 @@ class PinsController < InheritedResources::Base
     @pin = Pin.find(params[:id])
   end
 
-    def pin_params
-      params.require(:pin).permit(:id, :board_id, :title, :description, :url, :image, :image_cache, :remove_image, board_ids: [])
-    end
+  def modify_pin
+    @pin = Pin.where(board_id: current_user.board_ids).find_by(id: params[:id])
+    redirect_to '/' if @pin.blank?
+  end
+
+  def pin_params
+    params.require(:pin).permit(:id, :board_id, :title, :description, :url, :image, :image_cache, :remove_image, board_ids: [])
+  end
 end

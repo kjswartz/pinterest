@@ -46,7 +46,8 @@ class UsersController < InheritedResources::Base
 
   private
     def set_user
-      @user = User.find(params[:id])
+      @user = User.where(id: current_user).find_by(id: params[:id])
+      redirect_to '/' if @user.blank?
     end
 
     def user_params

@@ -6,7 +6,8 @@
 
   <div class="container-fluid profilehead">
     <p><strong>Boards:</strong><%= @user.boards.count %></p>
-    <p><strong>Pins:</strong><%= @user.pins.count %></p>
+    <p><strong>Pins:</strong><%= @user.pins.count %></p></br>
+    <%= link_to 'Edit Profile', edit_user_path(@user),  class:"btn btn-default" %>
   </div>
 
 </div>
