@@ -1,5 +1,5 @@
 class BoardsController < InheritedResources::Base
-  before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :set_board, only: [:show, :edit, :update, :destroy, :new]
 
   def index
     @user = User.find(params[:user_id])
@@ -7,7 +7,6 @@ class BoardsController < InheritedResources::Base
   end
 
   def new
-    @user = User.find(params[:user_id])
     @board = @user.boards.new
   end
 
@@ -51,7 +50,7 @@ class BoardsController < InheritedResources::Base
       # @board = Board.find(params[:id])
       @user = User.where(id: current_user).find_by(id: params[:user_id])
       if @user.nil?
-        redirect_to '/'
+        redirect_to root_path, alert: "Ah Ah Ah...You didn't say the magic word..."
       else
         @board = @user.boards.find(params[:id])
       end

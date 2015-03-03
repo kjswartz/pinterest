@@ -47,7 +47,7 @@ class UsersController < InheritedResources::Base
   private
     def set_user
       @user = User.where(id: current_user).find_by(id: params[:id])
-      redirect_to '/' if @user.blank?
+      redirect_to root_path, alert: "Ah Ah Ah...You didn't say the magic word..." if @user.nil?
     end
 
     def user_params
