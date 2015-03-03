@@ -1,4 +1,6 @@
 ActiveAdmin.register Board do
+  config.per_page = 10
+  scope_to :current_user
 
   permit_params(:user_id, :name, :description)
 
