@@ -63,12 +63,8 @@ class PinsController < InheritedResources::Base
   end
 
   def modify_pin
-    if @current_user.admin?
-      @pin = Pin.find(params[:id])
-    else
-      @pin = Pin.where(board_id: current_user.board_ids).find_by(id: params[:id])
-      redirect_to '/' if @pin.blank?
-    end
+    @pin = Pin.where(board_id: current_user.board_ids).find_by(id: params[:id])
+    redirect_to '/' if @pin.blank?
   end
 
   def pin_params

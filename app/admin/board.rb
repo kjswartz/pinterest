@@ -1,7 +1,5 @@
 ActiveAdmin.register Board do
   config.per_page = 10
-  scope :updated_board
-
 
   permit_params(:user_id, :name, :description)
 

@@ -31,10 +31,6 @@
         <td><%= pin.board.name unless pin.board.blank? %></td>
         <td><%= pin.title %></td>
         <td><%= link_to image_tag(pin.image.url(:thumb)), pin %></td>
-        <% if @current_user.admin? %>
-          <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-          <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
       </tr>
     <% end %>
   </tbody>

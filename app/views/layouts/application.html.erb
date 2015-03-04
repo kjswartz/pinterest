@@ -16,12 +16,9 @@
 <body class="background">
 
   <div class="container-fluid searchbar">
-    <ul>
-      <li><%= link_to "Guest Profile", user_path(@current_user), class:"btn btn-default" %></li>
-      <li><%= link_to "All Pins", '/', class:"btn btn-default" %></li>
-      <li><%= link_to "Search Pins", '/pins/search', class:"btn btn-default" %></li>
-    </ul>
+    <%= render 'layouts/navbar' %>
   </div>
+  
   <%= flash_messages %>
   <%= yield %>
 
