@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20150303135629) do
     t.string   "avatar"
     t.string   "location"
     t.text     "about"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "admin"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "admin",      default: false
   end
 
   add_foreign_key "boards", "users"
