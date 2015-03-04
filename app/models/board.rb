@@ -17,17 +17,8 @@ class Board < ActiveRecord::Base
   #validations
   validates :name, presence: true
 
-
-  def self.updated_board
-    order('updated_at desc')
-  end
-
-  def self.latest_board
-    order('created_at desc').first
-  end
-
-  def self.first_board
-    order('created_at asc').first
-  end
+  scope :created_at, -> { order('created_at asc') }
+  scope :updated_at, -> { order('updated_at desc') }
+  scope :id, -> { order('id asc')}
 
 end

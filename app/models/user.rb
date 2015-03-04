@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :username, uniqueness: true
 
+  scope :updated_at, -> { order('updated_at desc') }
+  scope :recent, -> { order('updated_at desc').first }
+
+
 end
