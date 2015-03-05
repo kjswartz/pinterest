@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   ActiveAdmin.routes(self)
 
-  resources :users do
-    resources :boards
+  resources :users, except: [:index] do
+    resources :boards, except: [:index]
   end
 
   resources :pins do

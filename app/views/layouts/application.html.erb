@@ -15,10 +15,9 @@
 
 <body class="background">
 
-  <div class="container-fluid searchbar">
-    <%= render 'layouts/navbar' %>
-  </div>
-  
+
+  <%= render :partial => 'layouts/navbar' %>
+
   <%= flash_messages %>
   <%= yield %>
 
