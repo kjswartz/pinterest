@@ -12,6 +12,7 @@ class BoardsController < InheritedResources::Base
 
   def new
     @board = @user.boards.new
+Rails.logger.info @board.inspect
   end
 
   def edit
