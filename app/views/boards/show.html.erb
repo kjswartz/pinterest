@@ -16,53 +16,48 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
+    <div class="masonry">
 
+        <!-- Button trigger modal -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
+          <%= image_tag('add_pin.png') if @user.id == current_user.id %>
+        </button>
+        <!-- Modal -->
 
-  <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-      <div class="masonry">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
-          <!-- Button trigger modal -->
-          <button type="button" class="btn" data-toggle="modal" data-target="#myModal">
-            <%= image_tag('add_pin.png') if @user.id == current_user.id %>
-          </button>
-          <!-- Modal -->
-
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Create a Pin</h4>
-                </div>
-
-                <div class="modal-body">
-                  <%= render "formpin" %>
-                </div>
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create a Pin</h4>
               </div>
+
+              <div class="modal-body">
+                <%= render "formpin" %>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+
             </div>
           </div>
-
-
-        <% @board.pins.shuffle.each do |pin| %>
-          <div class="item boardContainer">
-              <%= link_to image_tag(pin.image.url(:pinsize), class:"pinimg"), pin %>
-              <h3 class="boardName"><%= pin.title %></h3>
-              <a href= "<%= pin.url %>" style="text-decoration:none;">
-                <div class="pin">
-                  Pinned from</br>
-                  <%= truncate(pin.url, length:35) %>
-                </div>
-              </a>
+        </div>
+        
+      <% @board.pins.shuffle.each do |pin| %>
+        <div class="item boardContainer">
+          <%= link_to image_tag(pin.image.url(:pinsize), class:"pinimg"), pin %>
+          <h3 class="boardName"><%= pin.title %></h3>
+          <div class="pin">
+            Pinned from</br>
+            <%= truncate(pin.url, length:35) %>
           </div>
-        <% end %>
+        </div>
+      <% end %>
 
-      </div>
     </div>
   </div>
+</div>

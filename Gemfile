@@ -5,6 +5,7 @@ gem 'rails', '4.2.0'
 gem 'activeadmin', github: 'activeadmin'
 #adding table details to models
 gem 'annotate', '~> 2.6.5'
+gem 'bourbon'
 #image uploader
 gem 'carrierwave'
 #fake seed data generater

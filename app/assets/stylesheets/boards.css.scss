@@ -1,10 +1,44 @@
 // Place all the styles related to the Boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.background {
-  background-color: $back-color;
-}
-
 .pinimg {
   border-radius: 6px 6px 0px 0px;
+}
+
+.boardContainer {
+  @include linear-gradient($header-color, #2989d8);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 6px;
+  position: relative;
+  width: 236px;
+  min-height: 320px;
+}
+
+.pin{
+  text-decoration: none;
+  color: darken($header-color, 80%);
+  line-height: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px 0px 5px 10px;
+  text-align: left;
+}
+
+.boardName {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+white-space: nowrap;
+overflow: hidden;
+-ms-text-overflow: ellipsis;
+text-overflow: ellipsis;
+color: #555;
+display: block;
+font-size: 14px;
+font-weight: bold;
+height: 18px;
+line-height: 18px;
+margin: 0 3px 6px;
+position: relative;
+height: auto;
+padding: 5px 0px 3px 10px;
 }

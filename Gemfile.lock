@@ -321,6 +321,7 @@ DEPENDENCIES
   activeadmin!
   annotate (~> 2.6.5)
   better_errors
+  bourbon
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
