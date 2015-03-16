@@ -10,30 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
- body {
-   background-color: #E3E3E3;
- }
-.profileImageBar {
-   border-radius: 200px;
-   width: 40px;
-   height: 40px;
- }
-
-.searchbar {
-   border-bottom: 1px;
-   border-style: solid;
-   border-color: #eee;
-   padding: 10px;
-   background-color: #fff;
-}
-ul li {
-   display:inline;
-   float: left;
-
-}
-a:link {
-  text-decoration: none;
-}
+ @import 'color';
+ @import 'pins';
+ @import 'users';
+ @import 'boards';

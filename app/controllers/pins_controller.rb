@@ -31,8 +31,7 @@ class PinsController < InheritedResources::Base
   def create
     @new_pin = Pin.new(pin_params)
     @pin = @new_pin
-Rails.logger.debug puts "I'm Here"
-Rails.logger.info puts @pin.inspect
+
     respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
