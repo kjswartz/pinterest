@@ -23,7 +23,7 @@ class UsersController < InheritedResources::Base
         session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
       else
-        flash[:error] = "We were unable to sign you up. #{user.errors.full_messages.join('. ')}"
+        flash[:error] = "We were unable to sign you up. #{@user.errors.full_messages.join('. ')}"
         format.html { render :new }
       end
     end
