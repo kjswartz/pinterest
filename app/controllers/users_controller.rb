@@ -53,6 +53,6 @@ class UsersController < InheritedResources::Base
     end
 
     def user_params
-      params.require(:user).permit(:password, :password_digest, :name, :username, :email, :avatar, :avatar_cache, :location, :about, :remove_avatar)
+      params.require(:user).permit(:password, :name, :username, :email, :avatar, :avatar_cache, :location, :about, :remove_avatar)
     end
 end
