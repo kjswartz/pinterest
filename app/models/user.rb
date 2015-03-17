@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
   validates :username, uniqueness: true
+  validates :password, length: { minimum: 6 }
 
   #scopes
   scope :updated_at, -> { order('updated_at desc') }

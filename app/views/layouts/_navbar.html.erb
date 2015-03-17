@@ -5,8 +5,11 @@
         <%= link_to "Search Pins", '/pins/search', class:"btn btn-default" %>
       </div>
       <% if signed_in? %>
-        <p class="navbar-right" style="padding-right:116px;"><%= link_to image_tag(current_user.avatar.thumb.url, width: "40px;"), user_path(current_user) %> <% if current_user.admin? %>| <%= link_to "Admin", admin_root_path %> <% end %></p>
+      <p class="navbar-right"><%= link_to 'Sign Out', session_signout_path, method: :delete %> </p>
+        <p class="navbar-right"><%= link_to image_tag(current_user.avatar.thumb.url, width: "40px;"), user_path(current_user) %> <% if current_user.admin? %>| <%= link_to "Admin", admin_root_path %> <% end %></p>
         <p class="navbar-right"  style="padding:5px;">Hello <%= current_user.name %>!</p>
+      <% else %>
+      <p class="navbar-right" style="padding-right:116px;"><%= link_to 'Sign up!', new_user_path %>
       <% end %>
     </div>
   </div>
