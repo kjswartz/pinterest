@@ -1,6 +1,7 @@
 <div class="row profilehead">
   <div class="col-md-12">
     <%= image_tag @user.avatar.url, class: "profileImage displayed" %>
+    <p><strong>Welcome:</strong><%= @user.name %></p>
     <p><strong>Boards:</strong><%= @user.boards.count %></p>
     <p><strong>Pins:</strong><%= @user.pins.count %></p></br>
     <%= link_to 'Edit Profile', edit_user_path(@user),  class:"btn btn-default" %>

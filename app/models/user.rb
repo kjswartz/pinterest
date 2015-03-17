@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   #associations
+  has_secure_password
   has_many :boards, dependent: :destroy
   has_many :pins, through: :boards
 

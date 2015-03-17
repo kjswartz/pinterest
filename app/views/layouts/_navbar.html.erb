@@ -6,6 +6,7 @@
       </div>
       <% if signed_in? %>
         <p class="navbar-right" style="padding-right:116px;"><%= link_to image_tag(current_user.avatar.thumb.url, width: "40px;"), user_path(current_user) %> <% if current_user.admin? %>| <%= link_to "Admin", admin_root_path %> <% end %></p>
+        <p class="navbar-right"  style="padding:5px;">Hello <%= current_user.name %>!</p>
       <% end %>
     </div>
   </div>

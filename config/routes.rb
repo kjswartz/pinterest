@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'session/signup'
+  post 'session/signin'
+  delete 'session/signout'
+
   root 'welcome#index'
   ActiveAdmin.routes(self)
 
