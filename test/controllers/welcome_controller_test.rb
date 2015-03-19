@@ -8,4 +8,8 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_not_nil assigns(:pins) # makes sure that a @pins instance variable was set
   end
 
+  test "links to pins works" do
+    assert_generates('/pins/1', {:controller => 'pins', :action => 'show', :id => '1'})
+  end
+
 end
