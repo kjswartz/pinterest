@@ -9,7 +9,7 @@ class PinsController < InheritedResources::Base
   end
 
   def index
-    redirect_to 'pins/search'
+    redirect_to action: :search
   end
 
   def new
