@@ -15,14 +15,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  board_id: 
+  board_id: 1
   title: MyString
   description: MyText
   url: MyString
   image: MyString
 
 two:
-  board_id: 
+  board_id: 2
   title: MyString
   description: MyText
   url: MyString

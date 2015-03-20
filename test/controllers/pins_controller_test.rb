@@ -3,12 +3,16 @@ require 'test_helper'
 class PinsControllerTest < ActionController::TestCase
   setup do
     @pin = pins(:one)
+    @new_pin = pins(:two)
+    @current_user = users(:one)
   end
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:pins)
+    # assert_response :redirect
+    # assert_redirected_to(controller: "pins", :action => 'search')
+    assert_redirected_to search_pins_path
+    # assert_not_nil assigns(:pins)
   end
 
   test "should get new" do
