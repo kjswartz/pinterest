@@ -16,7 +16,7 @@
 
 one:
   board_id: 1
-  title: MyString
+  title: MyStringOne
   description: MyText
   url: MyString
   image: MyString
