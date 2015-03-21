@@ -13,11 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: :one
+  user: :one
   name: MyString
   description: MyText
 
 two:
-  user_id: :two
+  user: :two
   name: MyString
   description: MyText
