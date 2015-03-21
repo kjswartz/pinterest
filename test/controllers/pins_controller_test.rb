@@ -20,6 +20,11 @@ class PinsControllerTest < ActionController::TestCase
 
   end
 
+  test "should show pin" do
+    get :show, id: @pin
+    assert_response :success
+  end
+
   # test "should get new" do
   #   get :new
   #   assert_response :success
@@ -33,10 +38,6 @@ class PinsControllerTest < ActionController::TestCase
   #   assert_redirected_to pin_path(assigns(:pin))
   # end
 
-  # test "should show pin" do
-  #   get :show, id: @pin
-  #   assert_response :success
-  # end
   #
   # test "should get edit" do
   #   get :edit, id: @pin
