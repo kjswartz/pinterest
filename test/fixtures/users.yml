@@ -23,6 +23,8 @@ one:
   location: MyString
   about: MyText
   admin: false
+  password_digest: MyString
+
 
 two:
   name: MyString
