@@ -16,20 +16,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  username: MyString
-  email: MyString
+  name: Kyle
+  username: kyleuser
+  email: kyle@kyle.com
   avatar: MyString
   location: MyString
   about: MyText
-  admin: false
-  password_digest: MyString
+  admin: true
+  password_digest: password
 
 
 two:
   name: MyString
-  username: MyString
-  email: MyString
+  username: MyStringTwo
+  email: MyStringTwo
   avatar: MyString
   location: MyString
   about: MyText
