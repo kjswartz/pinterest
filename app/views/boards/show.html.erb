@@ -46,7 +46,7 @@
             </div>
           </div>
         </div>
-        
+
       <% @board.pins.shuffle.each do |pin| %>
         <div class="item boardContainer">
           <%= link_to image_tag(pin.image.url(:pinsize), class:"pinimg"), pin %>
