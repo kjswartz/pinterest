@@ -32,6 +32,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'dotenv-rails'
+  gem 'letter_opener'
 end
 
 group :development do
