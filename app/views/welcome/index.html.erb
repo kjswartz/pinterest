@@ -12,8 +12,8 @@
                 <%= link_to image_tag(pin.image.url(:pinsize), class: "pinimg"), pin %>
                 <h3 class="boardName"><%= pin.title %></h3>
                 <div class="pin">
-                  Pinned from</br>
-                  <%= truncate(pin.url, length:32) %>
+                  Owner: <%= pin.board.user.name %></br>
+                  Board: <%= pin.board.name %>
                 </div>
               </div>
             </div>
