@@ -1,5 +1,5 @@
 <%= form_for @new_pin, :html => {:multipart => true} do |f| %>
-  <% if @pin.errors.any? %>
+  <% if @new_pin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
 

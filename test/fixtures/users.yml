@@ -11,22 +11,26 @@
 #  about      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+#  admin      :boolean
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  username: MyString
-  email: MyString
+  name: Kyle
+  username: kyleuser
+  email: kyle@kyle.com
   avatar: MyString
   location: MyString
   about: MyText
+  admin: true
+  password_digest: password
+
 
 two:
   name: MyString
-  username: MyString
-  email: MyString
+  username: MyStringTwo
+  email: MyStringTwo
   avatar: MyString
   location: MyString
   about: MyText
+  admin: false
