@@ -3,12 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
-  end
-
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:users)
+    session[:user_id] = @user.id
   end
 
   test "should get new" do
@@ -18,7 +13,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { about: @user.about, avatar: @user.avatar, email: @user.email, location: @user.location, name: @user.name, username: @user.username }
+      post :create, user: { about: @user.about, avatar: @user.avatar, email: @user.email, location: @user.location, name: @user.name, username: @user.username, password: @user.password }
     end
 
     assert_redirected_to user_path(assigns(:user))
@@ -35,7 +30,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    patch :update, id: @user, user: { about: @user.about, avatar: @user.avatar, email: @user.email, location: @user.location, name: @user.name, username: @user.username }
+    patch :update, id: @user, user: { about: @user.about, avatar: @user.avatar, email: @user.email, location: @user.location, name: @user.name, username: @user.username, password_digest: @user.password }
     assert_redirected_to user_path(assigns(:user))
   end
 
