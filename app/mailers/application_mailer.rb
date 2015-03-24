@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "Pinterest@Pinterest.com"
+  default from: "Kyles_Pinterest_app@gmail.com"
   layout 'mailer'
 end
