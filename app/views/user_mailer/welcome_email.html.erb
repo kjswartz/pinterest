@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1 style="color:red;">Welcome to Pinterest.com, <%= @user.name.upcase %>!</h1>
+    <p>You have successfully signed up to Pinterest.com</p>
+    <p>You can log in using your email: <strong><%= @user.email %></strong>, and password.</p>
+    <p>
+      To login to the site, just follow this link: <%= link_to 'Pinterest', @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </br>
+    <p>v/r,</p>
+    <p>Pinterest Support Staff</p>
+    <p>Email: support@pinterest.com</p>
+    <p>Phone (Mon-Fri 8am-5pm est): 1-800-555-5555</p>
+  </body>
+</html>
