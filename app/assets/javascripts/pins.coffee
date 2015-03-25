@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ready = ->
   # enable chosen js
-  $('.choosen-select').chosen
+  $('.chosen-select').chosen
     width: '200px'
     no_results_text: "Oops, nothing found!"
     allow_single_deselect: true
