@@ -12,7 +12,8 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.collection_select :board_id, @current_user.boards(:name),:id,:name, include_blank: true %>
+    <%= f.label :board_ids, "Boards" %></br>
+    <%= f.collection_select :board_id, @current_user.boards(:name),:id,:name, {include_blank: true}, {class: 'choosen-select'} %>
   </div>
 
 
