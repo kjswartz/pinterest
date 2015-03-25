@@ -19,7 +19,7 @@ one:
   title: MyStringOne
   description: MyText
   url: MyString
-  image: MyString
+  image: MyString.jpeg
 
 two:
   board: :two
