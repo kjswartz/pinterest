@@ -1,7 +1,10 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid navbar-custom">
     <div class="navbar-header">
-        <%= link_to image_tag('pinterest.png', width: '35px'), root_path %>
+      <%= link_to image_tag('pinterest.png', width: '35px'), root_path %>
+
+        <a id="aboutModal">About</a>
+
         <%= link_to "Search Pins", '/pins/search', class:"btn btn-default" %>
       </div>
       <% if signed_in? %>
@@ -27,4 +30,23 @@
       <% end %>
     </div>
   </div>
+
 </nav>
+
+
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Kyle's Pinterest App</h4>
+      </div>
+      <div class="modal-body">
+        <h3>This Pinterest clone app was built while attending the Iron Yard. This modal is being called via coffee script!</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
