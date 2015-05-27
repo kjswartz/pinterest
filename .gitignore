@@ -16,5 +16,6 @@
 !/log/.keep
 /tmp
 .env
+.ENV
 /public/uploads
 .idea
